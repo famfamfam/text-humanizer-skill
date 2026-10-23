@@ -2,32 +2,19 @@
 
 Run these manually in a fresh conversation with the installed skill. Invoke
 `$text-humanizer` in Codex or `/text-humanizer` in Claude Code and Hermes before each prompt.
-Assess the stated properties, not an exact reference answer. Record the client,
-model, date, output, and pass/fail result. A fluent answer that changes a protected
-fact fails. This corpus is a test plan, not a claim that every client passed.
+Assess the stated properties rather than an exact reference answer. Record the
+client, model, skill version, date, output, and result. Check factual accuracy
+as well as fluency.
 
-Verify that the client actually loaded `SKILL.md`, using its tool trace or a
-supported prompt diagnostic. A statement such as "I used text-humanizer" is not
-evidence. If file access fails or loading cannot be verified, mark the run
-inconclusive even when the answer looks correct. To test the instructions alone,
-you may supply the complete skill and relevant language notes in the prompt;
-label that a content test, not a discovery or installation test. Record runtime
-errors and blocked runs separately from behavioral failures.
+Confirm loading of `SKILL.md` through a successful tool trace or a supported
+prompt diagnostic. To test the instructions directly, supply the complete skill
+and relevant language notes and label the run a content test. Keep content,
+native loading, and discovery results separate.
 
-Run with unrelated writing modes disabled. In particular, Ponytail's active
-mode requires a footer about skipped checks, which conflicts with clean-text
-output. For test processes only, set `PONYTAIL_DEFAULT_MODE=off`; do not change
-the user's default mode. Keep the client's normal sandbox configuration when
-testing native loading: `--ignore-user-config` can remove required Windows
-sandbox settings and prevent reads. In Claude Code, `--restricted` can hide
-project skills; use a trusted test directory with only Read/Skill tools allowed
-and deny other permission requests instead.
-
-For Hermes batch runs, preload the skill with `hermes chat -s text-humanizer
--q "..."` (or `--query-file` for a UTF-8 prompt file). For discovery checks,
-omit `-s`. Hermes's single-query mode has a narrower skill-loading policy than
-interactive chat; record a skipped relevant skill as a discovery failure,
-even if the independently written answer is good.
+Use a fresh session and the client's normal sandbox settings. Disable unrelated
+writing modes for test processes. For Hermes batch runs, preload the skill with
+`hermes chat -s text-humanizer -q "..."` or use `--query-file` for a UTF-8 prompt
+file. For discovery checks, omit the explicit skill invocation.
 
 ## 1. Russian: uncertainty and attribution
 

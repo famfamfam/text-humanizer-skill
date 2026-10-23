@@ -7,7 +7,7 @@ description: >-
   AI authorship, translation alone, or code changes.
 license: MIT
 metadata:
-  version: "1.1.2"
+  version: "1.1.3"
 ---
 
 # Text Humanizer
