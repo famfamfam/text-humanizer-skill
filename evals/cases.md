@@ -23,6 +23,12 @@ sandbox settings and prevent reads. In Claude Code, `--restricted` can hide
 project skills; use a trusted test directory with only Read/Skill tools allowed
 and deny other permission requests instead.
 
+For Hermes batch runs, preload the skill with `hermes chat -s text-humanizer
+-q "..."` (or `--query-file` for a UTF-8 prompt file). For discovery checks,
+omit `-s`. Hermes's single-query mode has a narrower skill-loading policy than
+interactive chat; record a skipped relevant skill as a discovery failure,
+even if the independently written answer is good.
+
 ## 1. Russian: uncertainty and attribution
 
 > Убери канцелярит: «По предварительной оценке отдела продаж, новая форма может
@@ -118,7 +124,9 @@ reason, sender identity, or support contact.
 > Только укажи, что мешает читать этот текст, не переписывай:
 > «В целях осуществления проверки необходимо произвести отправку файла».
 
-Pass: gives feedback without replacing the user's text with a complete rewrite.
+Pass: gives accurate, concrete feedback without replacing the user's text with
+a complete rewrite. Do not accept a grammatical label that misdescribes the
+quoted words merely because the overall criticism sounds plausible.
 
 ## 12. English variety and exact details
 

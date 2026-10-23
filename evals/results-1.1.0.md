@@ -1,6 +1,6 @@
 # Text Humanizer 1.1.0: targeted regression check
 
-Historical report. See [current results and status](results-1.1.1.md).
+Historical report. See [current results and status](results-1.1.2.md).
 
 Date: 2026-10-23.
 

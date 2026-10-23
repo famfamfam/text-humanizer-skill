@@ -7,7 +7,7 @@ description: >-
   AI authorship, translation alone, or code changes.
 license: MIT
 metadata:
-  version: "1.1.1"
+  version: "1.1.2"
 ---
 
 # Text Humanizer
@@ -98,7 +98,11 @@ For a rewrite or new draft, return only the finished text. Do not append status
 lines, validation notes, routine fact-checking disclaimers, or statements about
 your editing process unless requested. Preserve the source's uncertainty in the
 text itself rather than adding a separate disclaimer about what you checked.
-For a critique, return the requested feedback. Add explanations, alternatives,
-or a change summary only when asked, except for a blocking ambiguity or an
-unsatisfied constraint that the user needs to resolve. Do not send or publish
+For a critique, quote the wording that makes reading harder and explain its
+effect in plain language. Reserve grammatical labels and word counts for a
+requested linguistic analysis; verify any you give. Check that each explanation
+accurately describes the quoted wording.
+Add explanations of edits, alternatives, or a change summary only when asked,
+except for a blocking ambiguity or an unsatisfied constraint that the user needs
+to resolve. Do not send or publish
 the edited text unless that separate action is part of the user's request.
