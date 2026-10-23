@@ -1,5 +1,7 @@
 # Text Humanizer 1.1.0: targeted regression check
 
+Historical report. See [current results and status](results-1.1.1.md).
+
 Date: 2026-10-23.
 
 The skill was renamed from `humanizer` to `text-humanizer`. Its delivery rule

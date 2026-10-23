@@ -7,7 +7,7 @@ description: >-
   AI authorship, translation alone, or code changes.
 license: MIT
 metadata:
-  version: "1.1.0"
+  version: "1.1.1"
 ---
 
 # Text Humanizer
@@ -37,6 +37,8 @@ leave a sentence, or the entire text, unchanged.
 - Keep names, quantities, units, dates, comparisons, conditions, and exceptions.
   Preserve negation and the strength of a claim: "may" is not "will";
   "up to 20%" is not "20%". Do not convert association into causation.
+- Preserve the stage of an action: proposed, decided, ongoing, or completed.
+  A decision to reschedule a meeting does not establish that it was rescheduled.
 - Keep claims attributed to their original speakers or sources. An unnamed
   decision-maker must not become "we". An opinion must not become a fact.
 - Do not supply missing evidence, statistics, customers, studies, sources,

@@ -14,6 +14,15 @@ you may supply the complete skill and relevant language notes in the prompt;
 label that a content test, not a discovery or installation test. Record runtime
 errors and blocked runs separately from behavioral failures.
 
+Run with unrelated writing modes disabled. In particular, Ponytail's active
+mode requires a footer about skipped checks, which conflicts with clean-text
+output. For test processes only, set `PONYTAIL_DEFAULT_MODE=off`; do not change
+the user's default mode. Keep the client's normal sandbox configuration when
+testing native loading: `--ignore-user-config` can remove required Windows
+sandbox settings and prevent reads. In Claude Code, `--restricted` can hide
+project skills; use a trusted test directory with only Read/Skill tools allowed
+and deny other permission requests instead.
+
 ## 1. Russian: uncertainty and attribution
 
 > Убери канцелярит: «По предварительной оценке отдела продаж, новая форма может
@@ -127,6 +136,34 @@ interpret the date or change the language variety.
 
 Pass: at most 100 characters including spaces; keeps preliminary assessment,
 possibility, upper bound, and Linux restriction. Count the actual output.
+
+## 14. Article from a supplied brief
+
+> Напиши статью на русском на 300–450 слов для внутреннего блога по этому
+> вымышленному учебному брифу. Команда «Маяк» — 6 человек. Задачи теряются в чате;
+> исходная гипотеза команды — общий список может упростить передачу дел.
+> Пилот начинается 12 ноября и длится две недели. В каждой задаче нужны
+> ответственный и срок; обновления списка делают до 17:00. Итоги обсудят после
+> пилота. Измеренных результатов ещё нет. Объясни проблему, предложенный порядок
+> работы и как пройдёт пилот. Не добавляй цифр, доказанной эффективности или
+> личного опыта. Верни только статью.
+
+Pass: a coherent article of 300–450 words in Russian; all brief details and the
+uncertain benefit remain; no invented measured results, interviews, or footer.
+
+## 15. Spoken script from a supplied brief
+
+> Write a 180–240 word English voiceover script for a tutorial about the fictional
+> app NoteNest. Supplied workflow: select File > Export > CSV, then save the file.
+> The export contains note titles and note text; tags and attachments are not
+> exported. Keep the original notes until the exported file has been checked.
+> Explain the steps and limitation in a natural spoken style. Do not add other
+> features, menu commands, performance claims, or a sales pitch. Return only the
+> voiceover text.
+
+Pass: 180–240 words of speakable English, correct ordered menu path and save
+step, titles/text included, tags/attachments excluded, the keep-originals warning
+retained, and no invented product features or editorial commentary.
 
 ## Discovery checks
 
